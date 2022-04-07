@@ -1,0 +1,71 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "/**/*.html",
+    "/**/*.json",
+    "/**/*.md",
+    "/**/*.svg",
+    "/**/*.twig"
+  ],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "at-rule-empty-line-before": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "layer",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "no-descending-specificity": null,
+    "order/order": [
+      "custom-properties",
+      "dollar-variables",
+      "declarations",
+      "rules"
+    ],
+    "order/properties-order": [
+      "content",
+      "display",
+      "flex",
+      "position",
+      "top",
+      "right",
+      "bottom",
+      "left",
+      "float",
+      "width",
+      "height",
+      "margin",
+      "padding",
+      "background",
+      "border",
+      "font-familly",
+      "font-size",
+      "line-height",
+      "font-weight",
+      "font-style",
+      "color",
+      "transform",
+      "transition"
+    ],
+    "property-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "selector-pseudo-element-colon-notation": "single",
+    "value-no-vendor-prefix": true
+  }
+}

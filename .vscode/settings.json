@@ -1,0 +1,34 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[twig]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
+    "source.fixAll.tslint": true
+  },
+  "editor.formatOnSave": false,
+  "eslint.enable": true,
+  "headwind.classRegex": {
+    "css": "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);",
+    "html": "\\bclass\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\']",
+    "javascript": "", // managed by eslint-plugin-tailwind
+    "javascriptreact": "", // managed by eslint-plugin-tailwind
+    "postcss": "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);",
+    "typescript": "", // managed by eslint-plugin-tailwind
+    "typescriptreact": "" // managed by eslint-plugin-tailwind
+  },
+  "headwind.runOnSave": true,
+  "stylelint.enable": true,
+  "stylelint.packageManager": "yarn",
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "postcss"
+  ]
+}

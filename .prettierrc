@@ -1,0 +1,12 @@
+{
+  "htmlWhitespaceSensitivity": "ignore",
+  "plugins": [
+    "./node_modules/prettier-plugin-twig-melody"
+  ],
+  "printWidth": 80,
+  "tabWidth": 2,
+  "twigMelodyPlugins": [
+    "node_modules/prettier-plugin-twig-enhancements"
+  ],
+  "useTabs": false
+}

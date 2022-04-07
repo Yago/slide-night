@@ -1,0 +1,5 @@
+{
+  "src/**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+  "src/**/*.{css,scss,styles.js,styles.jsx}": "stylelint",
+  "src/**/*.{twig,html}": "prettier --check"
+}
