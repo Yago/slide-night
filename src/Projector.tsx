@@ -6,8 +6,8 @@ import { useInterval, useKey } from 'rooks';
 
 import './Projector.css';
 
-const inSound = new Audio('/sounds/in.mp3');
-const outSound = new Audio('/sounds/out.mp3');
+const inSound = new Audio('./sounds/in.mp3');
+const outSound = new Audio('./sounds/out.mp3');
 
 type Props = {
   slides: string[];
