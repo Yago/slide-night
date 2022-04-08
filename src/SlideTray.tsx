@@ -24,7 +24,7 @@ const SlideTray = ({ onChange }: Props): JSX.Element => {
         <br />
         <span>↓</span>
         <img
-          src="/images/np_carousel-slide-projector_1123953_000000.svg"
+          src="./images/np_carousel-slide-projector_1123953_000000.svg"
           alt="slide projector icon"
         />
         <i>Chromium or Firefox recommended</i>
