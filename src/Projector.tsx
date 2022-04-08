@@ -58,7 +58,7 @@ const Projector = ({ slides }: Props): JSX.Element => {
   }, [index]);
 
   return (
-    <div className="projector">
+    <div className="projector" onClick={increment}>
       <AnimatePresence>
         {auto && (
           <motion.div
