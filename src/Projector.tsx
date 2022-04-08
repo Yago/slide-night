@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { useKey } from 'rooks';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useInterval, useKey } from 'rooks';
 
 import './Projector.css';
 
@@ -15,11 +15,24 @@ type Props = {
 
 const Projector = ({ slides }: Props): JSX.Element => {
   const [index, setIndex] = useState(0);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
+  const [auto, setAuto] = useState(false);
 
-  const increment = () =>
-    setIndex(i => (i < slides.length ? i + 1 : slides.length));
+  const increment = () => setIndex(i => (i < slides.length ? i + 1 : 0));
   const decrement = () => setIndex(i => (i > 0 ? i - 1 : 0));
+
+  const { start, stop } = useInterval(() => {
+    increment();
+  }, 4000) as unknown as { start: () => void; stop: () => void };
+
+  const toggleAuto = () => {
+    if (auto) {
+      stop();
+    } else {
+      start();
+    }
+    setAuto(i => !i);
+  };
 
   useKey(['f'], () => {
     if (!document.fullscreenElement) {
@@ -29,8 +42,10 @@ const Projector = ({ slides }: Props): JSX.Element => {
     }
   });
   useKey(['m'], () => setMuted(i => !i));
+  useKey(['a'], toggleAuto);
   useKey([37], decrement);
   useKey([39], increment);
+  useKey([32], toggleAuto);
 
   useEffect(() => {
     if (!muted) {
@@ -43,7 +58,28 @@ const Projector = ({ slides }: Props): JSX.Element => {
   }, [index]);
 
   return (
-    <div className="projector" onClick={increment}>
+    <div className="projector">
+      <AnimatePresence>
+        {auto && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="projector-progress"
+              animate={{
+                width: 0,
+              }}
+              transition={{
+                duration: 4,
+                repeatType: 'loop',
+                repeat: Infinity,
+              }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       {['/images/intro.jpg', ...slides].map((slide, i) => (
         <motion.div
           key={`slide-${slide}`}

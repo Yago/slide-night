@@ -36,8 +36,11 @@
 
 .slide-tray label i {
   font-size: 2vmin;
-  opacity: 0.7;
   padding-top: 1vmin;
+}
+
+.slide-tray label i + i {
+  opacity: 0.7;
 }
 
 .slide-tray img {
