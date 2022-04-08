@@ -2,6 +2,7 @@
   "name": "slide-night",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yago.github.io/slide-night",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -31,7 +32,8 @@
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "deploy": "react-scripts build && gh-pages -d build"
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
